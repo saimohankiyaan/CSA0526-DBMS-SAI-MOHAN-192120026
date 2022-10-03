@@ -73,4 +73,4 @@ mysql> desc student;
 +------------+----------+------+-----+---------+-------+
 6 rows in set (0.01 sec)
 
-mysql>
+mysql> HI
