@@ -1,0 +1,62 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use student;
+Database changed
+mysql> desc student;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| Reg_no       | int(3)   | YES  |     | NULL    |       |
+| Name         | char(15) | YES  |     | NULL    |       |
+| Gender       | char(1)  | YES  |     | NULL    |       |
+| DOB          | date     | YES  |     | NULL    |       |
+| Mobilenumber | int(10)  | NO   | PRI | 0       |       |
+| city         | char(15) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> INSERT INTO student VALUES(101,'Amith','M','2003/01/10',89363580,'Chennai'),(102,'Kalyan','M','2002/10,05',98484027,'Kurnool'),(102,'Varshith','M','2002/04/05',63051601,'Vellore');
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> SELECT *FROM student;
++--------+----------+--------+------------+--------------+---------+
+| Reg_no | Name     | Gender | DOB        | Mobilenumber | city    |
++--------+----------+--------+------------+--------------+---------+
+|    102 | Varshith | M      | 2002-04-05 |     63051601 | Vellore |
+|    101 | Amith    | M      | 2003-01-10 |     89363580 | Chennai |
+|    102 | Kalyan   | M      | 2002-10-05 |     98484027 | Kurnool |
++--------+----------+--------+------------+--------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT Name from student;
++----------+
+| Name     |
++----------+
+| Varshith |
+| Amith    |
+| Kalyan   |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *FROM student WHERE Name='Varshith';
++--------+----------+--------+------------+--------------+---------+
+| Reg_no | Name     | Gender | DOB        | Mobilenumber | city    |
++--------+----------+--------+------------+--------------+---------+
+|    102 | Varshith | M      | 2002-04-05 |     63051601 | Vellore |
++--------+----------+--------+------------+--------------+---------+
+1 row in set (0.01 sec)
+
+mysql>
