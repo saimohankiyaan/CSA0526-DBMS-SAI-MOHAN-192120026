@@ -1,0 +1,94 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+mysql> use student;
+Database changed
+mysql> create table persons
+    -> (id int(20),fname char(25),lname char(25),address char(40),city char(22));
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> desc persons;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| id      | int(20)  | YES  |     | NULL    |       |
+| fname   | char(25) | YES  |     | NULL    |       |
+| lname   | char(25) | YES  |     | NULL    |       |
+| address | char(40) | YES  |     | NULL    |       |
+| city    | char(22) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+
+mysql> desc persons;
++---------+----------+------+-----+---------+-------+
+| Field   | Type     | Null | Key | Default | Extra |
++---------+----------+------+-----+---------+-------+
+| id      | int(20)  | YES  |     | NULL    |       |
+| fname   | char(25) | YES  |     | NULL    |       |
+| lname   | char(25) | YES  |     | NULL    |       |
+| address | char(40) | YES  |     | NULL    |       |
+| city    | char(22) | YES  |     | NULL    |       |
++---------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql>  INSERT INTO persons VALUES(123,'Arjun','Reddy','Hyderabad','hyderabad'),(124,'Rajesh','Khanna','Mumbai','Bombay'),(125,'Alia','Bhatt','Bombay','bombay'),(126,'Kamal','Hassan','Chennai','chennai');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> use student;
+Database changed
+mysql> select*from persons;
++------+--------+--------+-----------+-----------+
+| id   | fname  | lname  | address   | city      |
++------+--------+--------+-----------+-----------+
+|  123 | Arjun  | Reddy  | Hyderabad | hyderabad |
+|  124 | Rajesh | Khanna | Mumbai    | Bombay    |
+|  125 | Alia   | Bhatt  | Bombay    | bombay    |
+|  126 | Kamal  | Hassan | Chennai   | chennai   |
++------+--------+--------+-----------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> delete from persons
+    -> where id=124;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select*from persons;
++------+-------+--------+-----------+-----------+
+| id   | fname | lname  | address   | city      |
++------+-------+--------+-----------+-----------+
+|  123 | Arjun | Reddy  | Hyderabad | hyderabad |
+|  125 | Alia  | Bhatt  | Bombay    | bombay    |
+|  126 | Kamal | Hassan | Chennai   | chennai   |
++------+-------+--------+-----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> update persons
+    -> set city='Mumbai'
+    -> where id=125;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from persons;
++------+-------+--------+-----------+-----------+
+| id   | fname | lname  | address   | city      |
++------+-------+--------+-----------+-----------+
+|  123 | Arjun | Reddy  | Hyderabad | hyderabad |
+|  125 | Alia  | Bhatt  | Bombay    | Mumbai    |
+|  126 | Kamal | Hassan | Chennai   | chennai   |
++------+-------+--------+-----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql>
