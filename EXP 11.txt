@@ -1,0 +1,136 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 18
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE student;
+Database changed
+mysql> select *from student_report;
++-------+---------+-------+------------+-------+
+| regn0 | name    | marks | totalmarks | Grade |
++-------+---------+-------+------------+-------+
+|  1210 | Ramya   |    75 |        100 | B     |
+|  1211 | Keerthi |    90 |        100 | A     |
+|  1212 | Nihal   |    96 |        100 | S     |
+|  1213 | Satwik  |    95 |        100 | S     |
++-------+---------+-------+------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student_report values(1214,'Vinay',82,100,'A');
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> select name,marks,
+    -> case
+    -> when marks<90 then 'excellent'
+    -> when marks>90 then 'outstanding'
+    -> else 'average'
+    -> end performance
+    -> from student_report;
++---------+-------+-------------+
+| name    | marks | performance |
++---------+-------+-------------+
+| Ramya   |    75 | excellent   |
+| Keerthi |    90 | average     |
+| Nihal   |    96 | outstanding |
+| Satwik  |    95 | outstanding |
+| Vinay   |    82 | excellent   |
++---------+-------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> select*from student_report;
++-------+---------+-------+------------+-------+
+| regn0 | name    | marks | totalmarks | Grade |
++-------+---------+-------+------------+-------+
+|  1210 | Ramya   |    75 |        100 | B     |
+|  1211 | Keerthi |    90 |        100 | A     |
+|  1212 | Nihal   |    96 |        100 | S     |
+|  1213 | Satwik  |    95 |        100 | S     |
+|  1214 | Vinay   |    82 |        100 | A     |
++-------+---------+-------+------------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into student_report values(1215,'Amulya',86,100,'A'),(1216,'Nathan',92,100,'S');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from student_report;
++-------+---------+-------+------------+-------+
+| regn0 | name    | marks | totalmarks | Grade |
++-------+---------+-------+------------+-------+
+|  1210 | Ramya   |    75 |        100 | B     |
+|  1211 | Keerthi |    90 |        100 | A     |
+|  1212 | Nihal   |    96 |        100 | S     |
+|  1213 | Satwik  |    95 |        100 | S     |
+|  1214 | Vinay   |    82 |        100 | A     |
+|  1215 | Amulya  |    86 |        100 | A     |
+|  1216 | Nathan  |    92 |        100 | S     |
++-------+---------+-------+------------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select name,student_report,
+    -> if(marks>75,'Good marks','Average marks')
+    -> from student_report;
+ERROR 1054 (42S22): Unknown column 'student_report' in 'field list'
+mysql> select name,student_report,
+    -> if(marks>75,'Good marks','Average marks')
+    -> from student_report;
+ERROR 1054 (42S22): Unknown column 'student_report' in 'field list'
+mysql>
+mysql> select name,marks,
+    -> if(marks>75,'Good marks','Average marks')
+    -> from student_report;
++---------+-------+-------------------------------------------+
+| name    | marks | if(marks>75,'Good marks','Average marks') |
++---------+-------+-------------------------------------------+
+| Ramya   |    75 | Average marks                             |
+| Keerthi |    90 | Good marks                                |
+| Nihal   |    96 | Good marks                                |
+| Satwik  |    95 | Good marks                                |
+| Vinay   |    82 | Good marks                                |
+| Amulya  |    86 | Good marks                                |
+| Nathan  |    92 | Good marks                                |
++---------+-------+-------------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select name,marks,
+    -> if(marks>80,'Good marks','Average marks')
+    -> from student_report;
++---------+-------+-------------------------------------------+
+| name    | marks | if(marks>80,'Good marks','Average marks') |
++---------+-------+-------------------------------------------+
+| Ramya   |    75 | Average marks                             |
+| Keerthi |    90 | Good marks                                |
+| Nihal   |    96 | Good marks                                |
+| Satwik  |    95 | Good marks                                |
+| Vinay   |    82 | Good marks                                |
+| Amulya  |    86 | Good marks                                |
+| Nathan  |    92 | Good marks                                |
++---------+-------+-------------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql> select name,marks,
+    -> if(marks>90,'Good marks','Average marks')
+    -> from student_report;
++---------+-------+-------------------------------------------+
+| name    | marks | if(marks>90,'Good marks','Average marks') |
++---------+-------+-------------------------------------------+
+| Ramya   |    75 | Average marks                             |
+| Keerthi |    90 | Average marks                             |
+| Nihal   |    96 | Good marks                                |
+| Satwik  |    95 | Good marks                                |
+| Vinay   |    82 | Average marks                             |
+| Amulya  |    86 | Average marks                             |
+| Nathan  |    92 | Good marks                                |
++---------+-------+-------------------------------------------+
+7 rows in set (0.00 sec)
+
+mysql>
