@@ -1,0 +1,90 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use sse;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+    
+| faculty       |
+| employee      |
+| persons       |
+| student       |
++---------------+
+19 rows in set (0.02 sec)
+
+mysql> create table Employee1(Emp_id int(4),Emp_name varchar(20),DOB DATE,DOJ DATE,Salary int(4),Address varchar(20),Experience int(1));
+Query OK, 0 rows affected, 3 warnings (0.04 sec)
+
+mysql> desc Employee1;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| Emp_id     | int         | YES  |     | NULL    |       |
+| Emp_name   | char(20)    | YES  |     | NULL    |       |
+| DOB        | date        | YES  |     | NULL    |       |
+| DOJ        | date        | YES  |     | NULL    |       |
+| Salary     | int         | YES  |     | NULL    |       |
+| Address    | char(20)    | YES  |     | NULL    |       |
+| Experience | int         | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into Employee1 values(100,"sai",'2003-02-08','2022-07-18',10000,"banglore",3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee1 values(101,"mohan",'2003-07-16','2022-11-23',150000,"Chennai",5);
+Query OK, 1 row affected (0.01 sec)
+mysql> insert into Employee1 values(102,"vithik",'2003-01-16','2021-10-23',150000,"goa",4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into Employee1 values(103,"john",'2002-03-25','2022-10-25',150000,"kerala",2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Employee1 values(104,"sita",'1995-07-15','2019-07-18',102000,"mp",5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select*from Employee1;
++--------+----------+------------+------------+--------+-----------+------------+
+| Emp_id | Emp_name | DOB        | DOJ        | Salary | Address   | Experience |
++--------+----------+------------+------------+--------+-----------+------------+
+|    100 | sai      | 2003-07-15 | 2022-07-18 | 100000 | banglore  |          3 |
+|    101 | mohan    | 2003-07-16 | 2022-11-23 | 150000 | Chennai   |          5 |
+|    102 | Vithik   | 2003-01-16 | 2021-10-23 | 150000 | goa       |          4 |
+|    103 | john     | 2002-03-25 | 2022-10-25 | 150000 | kerala    |          2 |
+|    104 | sita     | 1995-07-15 | 2019-07-18 | 102000 | mp        |          5 |
++--------+----------+------------+------------+--------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> update Employee1 set Salary=200000 where Address="kerala";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Employee1 set Salary=250000 where Address="goa";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from Employee1;
++--------+----------+------------+------------+--------+-----------+------------+
+| Emp_id | Emp_name | DOB        | DOJ        | Salary | Address   | Experience |
++--------+----------+------------+------------+--------+-----------+------------+
+|    100 | sai      | 2003-07-15 | 2022-07-18 | 100000 | banglore  |          3 |
+|    101 | mohan    | 2003-07-16 | 2022-11-23 | 150000 | Chennai   |          5 |
+|    102 | vithi    | 2003-01-16 | 2021-10-23 | 250000 | goa       |          4 |
+|    103 | john     | 2002-03-25 | 2022-10-25 | 200000 | kerala    |          2 |
+|    104 | sita     | 1995-07-15 | 2019-07-18 | 102000 | mp        |          5 |
++--------+----------+------------+------------+--------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql>
