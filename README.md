@@ -45,4 +45,14 @@
 ## Experiment 15
 [SQL Queries]https://github.com/saimohankiyaan/CSA0526-DBMS-SAI-MOHAN-192120026/blob/main/EXP%2015.txt
 
+## Experiment 17
+[SQL Queries]https://github.com/saimohankiyaan/CSA0526-DBMS-SAI-MOHAN-192120026/blob/main/EXP%2017.txt
 
+## Experiment 18
+[SQL Queries]https://github.com/saimohankiyaan/CSA0526-DBMS-SAI-MOHAN-192120026/blob/main/EXP%2018.txt
+
+## Experiment 20
+[SQL Queries]https://github.com/saimohankiyaan/CSA0526-DBMS-SAI-MOHAN-192120026/blob/main/EXP%2020.txt
+
+## Experiment 22
+[SQL Queries]https://github.com/saimohankiyaan/CSA0526-DBMS-SAI-MOHAN-192120026/blob/main/EXP%2022.txt
